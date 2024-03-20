@@ -1,0 +1,19 @@
+---
+- name: Install Nginx and copy index.html
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Copy index.html
+      copy:
+        src: /home/user/FW/Server/index.html
+        dest: /var/www/html/
+
