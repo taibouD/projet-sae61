@@ -7,5 +7,5 @@ sudo apt-get update
 sudo apt-get install -y nginx
 
 # Copie du fichier index.html
-sudo cp /home/user/FW/Server/index.html /var/www/html/
+sudo cp /home/user/projet-sae61/FW/Server/index.html /var/www/html/
 

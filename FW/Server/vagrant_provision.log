@@ -1,0 +1,67 @@
+Bringing machine 'server' up with 'libvirt' provider...
+==> server: Checking if box 'generic/ubuntu2004' version '4.3.12' is up to date...
+==> server: Creating image (snapshot of base box volume).
+==> server: Creating domain with the following settings...
+==> server:  -- Name:              Server_server
+==> server:  -- Domain type:       kvm
+==> server:  -- Cpus:              1
+==> server:  -- Feature:           acpi
+==> server:  -- Feature:           apic
+==> server:  -- Feature:           pae
+==> server:  -- Memory:            2048M
+==> server:  -- Management MAC:    
+==> server:  -- Loader:            
+==> server:  -- Nvram:             
+==> server:  -- Base box:          generic/ubuntu2004
+==> server:  -- Storage pool:      default
+==> server:  -- Image:             /var/lib/libvirt/images/Server_server.img (128G)
+==> server:  -- Volume Cache:      default
+==> server:  -- Kernel:            
+==> server:  -- Initrd:            
+==> server:  -- Graphics Type:     vnc
+==> server:  -- Graphics Port:     -1
+==> server:  -- Graphics IP:       127.0.0.1
+==> server:  -- Graphics Password: Not defined
+==> server:  -- Video Type:        cirrus
+==> server:  -- Video VRAM:        256
+==> server:  -- Sound Type:	
+==> server:  -- Keymap:            en-us
+==> server:  -- TPM Path:          
+==> server:  -- INPUT:             type=mouse, bus=ps2
+==> server: Creating shared folders metadata...
+==> server: Starting domain.
+==> server: Waiting for domain to get an IP address...
+==> server: Waiting for SSH to become available...
+    server: 
+    server: Vagrant insecure key detected. Vagrant will automatically replace
+    server: this with a newly generated keypair for better security.
+    server: 
+    server: Inserting generated public key within guest...
+    server: Removing insecure key from the guest if it's present...
+    server: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> server: Setting hostname...
+==> server: Configuring and enabling network interfaces...
+==> server: Running provisioner: ansible...
+    server: Running ansible-playbook...
+
+PLAY [Install Nginx and copy index.html] ***************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [server]
+
+TASK [Update apt cache] ********************************************************
+changed: [server]
+
+TASK [Install Nginx] ***********************************************************
+changed: [server]
+
+TASK [Copy index.html] *********************************************************
+An exception occurred during task execution. To see the full traceback, use -vvv. The error was: If you are using a module and expect the file to exist on the remote, see the remote_src option
+fatal: [server]: FAILED! => {"changed": false, "msg": "Could not find or access '/home/user/FW/Server/index.html' on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+
+PLAY RECAP *********************************************************************
+server                     : ok=3    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+
+==> server: Removing domain...
+Ansible failed to complete successfully. Any error output should be
+visible above. Please fix these errors and try again.

@@ -14,6 +14,6 @@
 
     - name: Copy index.html
       copy:
-        src: /home/user/FW/Server/index.html
+        src: /home/user/projet-sae61/FW/Server/index.html
         dest: /var/www/html/
 
