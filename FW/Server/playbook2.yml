@@ -1,0 +1,16 @@
+---
+- name: Inject vulnerabilities into Nginx configuration
+  hosts: server
+  tasks:
+    - name: Copy original Nginx configuration file
+      fetch:
+        src: /etc/nginx/nginx.conf
+        dest: /home/user/projet-sae61/FW/Server
+        flat: yes
+
+    - name: Modify Nginx configuration file
+      lineinfile:
+        path: /home/user/projet-sae61/FW/Server/nginx.conf
+        regexp: '^(\s*)# Insert your vulnerability here'
+        line: 'votre vulnérabilité'
+
